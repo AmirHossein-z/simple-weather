@@ -1,0 +1,25 @@
+.weather-slider .swiper-wrapper {
+    @apply mt-[34px];
+}
+
+.weather-slider .swiper-slide {
+    @apply text-center text-xl flex flex-col gap-2 justify-center items-center text-white;
+}
+
+.weather-slider .swiper-button-next,
+.weather-slider .swiper-button-prev {
+    @apply text-primary-light;
+}
+
+/* .weather-slider .swiper-button-next {
+    right: -10px;
+} */
+
+/* .weather-slider .swiper-button-prev {
+    left: -10px;
+} */
+
+.weather-slider .swiper-button-next::after,
+.weather-slider .swiper-button-prev::after {
+    @apply text-xl;
+}
