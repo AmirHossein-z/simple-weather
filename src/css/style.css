@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: "Inter, sans-serif";
+    font-family: "Inter";
     src:
         url("../assets/fonts/Inter-Regular.woff2") format("woff2"),
         url("../assets/fonts/Inter-Regular.woff") format("woff"),
@@ -11,4 +11,8 @@
     font-weight: normal;
     font-style: normal;
     font-display: swap;
+}
+
+body {
+    font-family: "Inter, sans-serif";
 }
