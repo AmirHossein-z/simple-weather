@@ -11,14 +11,6 @@
     @apply text-primary-light;
 }
 
-/* .weather-slider .swiper-button-next {
-    right: -10px;
-} */
-
-/* .weather-slider .swiper-button-prev {
-    left: -10px;
-} */
-
 .weather-slider .swiper-button-next::after,
 .weather-slider .swiper-button-prev::after {
     @apply text-xl;
