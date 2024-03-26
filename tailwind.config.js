@@ -18,6 +18,13 @@ export default {
                     "url('./assets/images/forecast-wave-desktop.svg')",
             },
         },
+        container: {
+            center: true,
+            padding: {
+                DEFAULT: "24px",
+                lg: "40px",
+            },
+        },
     },
     plugins: [],
 };
