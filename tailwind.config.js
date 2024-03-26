@@ -20,6 +20,20 @@ export default {
                 "forecast-wave-desktop":
                     "url('./assets/images/forecast-wave-desktop.svg')",
             },
+            margin: {
+                7.5: "1.875rem",
+            },
+            borderRadius: {
+                40: "2.5rem",
+                10: "0.625rem",
+            },
+            width: {
+                7.5: "1.875rem",
+            },
+            fontSize: {
+                xxs: "0.5rem",
+                "7.5xl": "4rem",
+            },
         },
         container: {
             center: true,
