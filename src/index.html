@@ -5,44 +5,415 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Weather Home Page</title>
     </head>
-    <body class="bg-slate-900 flex items-center justify-center h-screen">
-        <div class="flex flex-col gap-32 text-white">
-            <h1 class="text-6xl font-extrabold"></h1>
-            <h1 class="text-6xl font-extrabold flex flex-col gap-4">
-                <span>It`s your turn now!</span>
-                <span>Develop an amazing weather app.</span>
-            </h1>
-            <div class="flex flex-col gap-2">
-                <h2 class="text-xl font-bold flex items-center gap-2">
-                    <i
-                        class="size-3 rounded-full bg-white inline-block animate-pulse"
-                    ></i>
-                    Start at here:
-                </h2>
-                <ul class="list-decimal list-inside space-y-2">
-                    <li class="list-item">
-                        Take a look at
-                        <a
-                            class="underline"
-                            href="https://www.figma.com/file/31PlGMQMfcjnSqQzc1obHr/Weather-Web-Design-%7C-App-UI-(Community)?type=design&node-id=1%3A5045&mode=design&t=ABYqHlCVJ7wW1yet-1"
+    <body class="bg-hokey-pokey">
+        <main class="container">
+            <!-- top section -->
+            <section
+                class="flex justify-between items-center mt-[46px] lg:mt-[51px] secondary-container"
+            >
+                <div
+                    class="flex justify-center items-center text-white gap-2.5 cursor-pointer p-1"
+                >
+                    <img
+                        src="./assets/icons/location-icon.svg"
+                        alt="location icon"
+                        class="py-0.5 px-1"
+                    />
+                    <h1 class="text-xl font-medium">New York</h1>
+                    <img src="./assets/icons/arrow-bottom-icon.svg" alt="" />
+                </div>
+                <img
+                    src="./assets/images/avatar.png"
+                    alt="avatar image"
+                    class="cursor-pointer w-7.5 object-contain object-center lg:hidden"
+                />
+            </section>
+            <!-- top section -->
+
+            <!-- alert -->
+            <section class="secondary-container">
+                <div
+                    class="flex items-center gap-2 py-3 px-10 bg-neutral-gray text-white rounded-2xl mt-5 mb-9"
+                >
+                    <img
+                        src="../assets/icons/sunny-icon.svg"
+                        alt="sunny icon"
+                        class="w-5 object-contain"
+                    />
+                    <p class="text-xs font-medium text-justify">
+                        No more rain in half an hour. Grab your umbrella and get
+                        ready to explore the city!
+                    </p>
+                </div>
+            </section>
+            <!-- alert -->
+
+            <!-- today weather section -->
+            <section
+                class="mt-[110px] text-white flex flex-col justify-center items-center gap-3 lg:hidden"
+            >
+                <h2 class="text-2xl font-medium lg:text-5xl">Cloudy</h2>
+                <div class="lg:self-end">
+                    <img
+                        src="./assets/images/cloudy-weather.svg"
+                        alt="cloudy weather images"
+                        class="w-[200px] py-6"
+                    />
+                </div>
+                <div>
+                    <p class="text-7.5xl font-medium text-center">
+                        26 <span>°C</span>
+                    </p>
+                    <div class="flex items-center gap-2 text-lg">
+                        <p>Sunday</p>
+                        |
+                        <p>12 Dec 2023</p>
+                    </div>
+                </div>
+            </section>
+            <section
+                class="hidden mt-10 text-white lg:flex justify-between items-start gap-3 flex-nowrap secondary-container"
+            >
+                <div class="w-3/4 flex flex-col justify-between self-stretch">
+                    <h2 class="font-medium text-5xl">Cloudy</h2>
+                    <div>
+                        <p class="text-7.5xl font-medium">26 <span>°C</span></p>
+                        <div class="flex items-center gap-2 text-lg">
+                            <p>Sunday</p>
+                            |
+                            <p>12 Dec 2023</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-1/4 flex justify-center items-center">
+                    <img
+                        src="./assets/images/cloudy-weather.svg"
+                        alt="cloudy weather images"
+                        class="py-6 w-[320px]"
+                    />
+                </div>
+            </section>
+            <!-- today weather section -->
+
+            <section
+                class="flex flex-col-reverse lg:flex-row lg:flex lg:mt-6 lg:mb-7.5 lg:justify-between lg:px-4"
+            >
+                <!-- sidebar -->
+                <aside
+                    class="lg:flex flex-col justify-center items-center gap-[99px] hidden p-5 bg-anzac rounded-40 max-w-[100px]"
+                >
+                    <img
+                        src="./assets/images/avatar.png"
+                        alt="avatar image"
+                        class="cursor-pointer w-[60px] object-contain object-center"
+                    />
+
+                    <div class="flex flex-col gap-[22px] justify-center">
+                        <div
+                            class="flex flex-col gap-1 justify-center items-center"
                         >
-                            design in Figma
-                        </a>
-                    </li>
-                    <li>
-                        Open
-                        <a
-                            class="underline"
-                            href="https://tailwindcss.com/docs/installation"
-                            >TailwindCSS documentation</a
+                            <img
+                                src="./assets/icons/partially-rainy-icon.svg"
+                                alt="partially rainy icon"
+                                class="w-[50px]"
+                            />
+                            <p class="text-sm font-semibold text-white">
+                                weather
+                            </p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-1 justify-center items-center"
                         >
-                        (It`s already installed and configured)
-                    </li>
-                    <li>Add design`s fonts to the project. (Inter font)</li>
-                    <li>Start coding...</li>
-                </ul>
-            </div>
-        </div>
+                            <img
+                                src="./assets/icons/compass-icon.svg"
+                                alt="compass icon"
+                                class="w-9"
+                            />
+                            <p class="text-sm font-semibold text-white">
+                                explore
+                            </p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <img
+                                src="./assets/icons/location-icon.svg"
+                                alt="location icon"
+                                class="w-7.5"
+                            />
+                            <p class="text-sm font-semibold text-white">
+                                cities
+                            </p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-1 justify-center items-center"
+                        >
+                            <img
+                                src="./assets/icons/settings-icon.svg"
+                                alt="settings icon"
+                                class="w-11"
+                            />
+                            <p class="text-sm font-semibold text-white">
+                                settings
+                            </p>
+                        </div>
+                    </div>
+                </aside>
+                <!-- sidebar -->
+
+                <section
+                    class="flex flex-col gap-8 lg:ml-7.5 lg:mr-5 lg:w-full"
+                >
+                    <section class="hidden lg:block py-5 px-9">
+                        activities
+                    </section>
+
+                    <section
+                        class="bg-anzac2 relative bg-opacity-80 rounded-10 lg:rounded-40 flex flex-col overflow-hidden mb-4"
+                    >
+                        <div
+                            class="absolute bg-forecast-wave-mobile bg-no-repeat bg-contain top-1/2 left-0 w-full h-full sm:hidden"
+                        ></div>
+                        <div
+                            class="absolute bg-forecast-wave-desktop bg-no-repeat bg-contain top-1/2 left-0 w-full h-full hidden sm:block"
+                        ></div>
+                        <div class="flex gap-1 items-center py-3 px-2.5">
+                            <img
+                                src="./assets/icons/clock-icon.svg"
+                                alt="clock icon"
+                            />
+                            <p class="text-sm text-white font-medium">
+                                24-hour forecast
+                            </p>
+                        </div>
+
+                        <div
+                            class="mt-10 mb-7 flex justify-center sm:justify-between gap-8 self-center"
+                        >
+                            <div
+                                class="flex flex-col justify-center items-center gap-10"
+                            >
+                                <h6 class="text-sm text-white font-medium">
+                                    30°
+                                </h6>
+                                <div
+                                    class="flex flex-col justify-center items-center"
+                                >
+                                    <img
+                                        src="./assets/icons/partially-cloudy-icon.svg"
+                                        alt="partially cloudy icon"
+                                        class="w-6 p-0.5"
+                                    />
+                                    <p class="text-xxs text-white">11.7km/h</p>
+                                    <p class="text-xxs text-white">Now</p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex flex-col justify-center items-center gap-10"
+                            >
+                                <h6 class="text-sm text-white font-medium">
+                                    30°
+                                </h6>
+                                <div
+                                    class="flex flex-col justify-center items-center"
+                                >
+                                    <img
+                                        src="./assets/icons/partially-cloudy-icon.svg"
+                                        alt="partially cloudy icon"
+                                        class="w-6 p-0.5"
+                                    />
+                                    <p class="text-xxs text-white">11.7km/h</p>
+                                    <p class="text-xxs text-white">Now</p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex flex-col justify-center items-center gap-10"
+                            >
+                                <h6 class="text-sm text-white font-medium">
+                                    30°
+                                </h6>
+                                <div
+                                    class="flex flex-col justify-center items-center"
+                                >
+                                    <img
+                                        src="./assets/icons/partially-cloudy-icon.svg"
+                                        alt="partially-cloudy-icon"
+                                        class="w-6 p-0.5"
+                                    />
+                                    <p class="text-xxs text-white">11.7km/h</p>
+                                    <p class="text-xxs text-white">Now</p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex flex-col justify-center items-center gap-10"
+                            >
+                                <h6 class="text-sm text-white font-medium">
+                                    30°
+                                </h6>
+                                <div
+                                    class="flex flex-col justify-center items-center"
+                                >
+                                    <img
+                                        src="./assets/icons/partially-cloudy-icon.svg"
+                                        alt="partially cloudy icon"
+                                        class="w-6 p-0.5"
+                                    />
+                                    <p class="text-xxs text-white">11.7km/h</p>
+                                    <p class="text-xxs text-white">Now</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button
+                            class="bg-putty text-white py-2 px-[60px] text-center rounded-2xl self-center mb-5 lg:hidden"
+                        >
+                            5-day forecast
+                        </button>
+                    </section>
+                </section>
+
+                <!-- other day weather section -->
+                <section
+                    class="my-8 lg:my-0 lg:bg-anzac rounded-40 lg:max-w-[325px] relative"
+                >
+                    <!-- weather slider -->
+                    <div class="swiper weather-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <p>SUN</p>
+                                <img
+                                    src="./assets/icons/partially-cloudy-icon.svg"
+                                    alt="partially cloudy icon"
+                                />
+                            </div>
+                            <div class="swiper-slide">
+                                <p>SUN</p>
+                                <img
+                                    src="./assets/icons/partially-cloudy-icon.svg"
+                                    alt="partially cloudy icon"
+                                />
+                            </div>
+                            <div class="swiper-slide">
+                                <p>SUN</p>
+                                <img
+                                    src="./assets/icons/partially-cloudy-icon.svg"
+                                    alt="partially cloudy icon"
+                                />
+                            </div>
+                            <div class="swiper-slide">
+                                <p>SUN</p>
+                                <img
+                                    src="./assets/icons/partially-cloudy-icon.svg"
+                                    alt="partially cloudy icon"
+                                />
+                            </div>
+                            <div class="swiper-slide">
+                                <p>SUN</p>
+                                <img
+                                    src="./assets/icons/partially-cloudy-icon.svg"
+                                    alt="partially cloudy icon"
+                                />
+                            </div>
+                            <div class="swiper-slide">
+                                <p>SUN</p>
+                                <img
+                                    src="./assets/icons/partially-cloudy-icon.svg"
+                                    alt="partially cloudy icon"
+                                />
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <!-- weather slider -->
+
+                    <div class="lg:flex lg:gap-1 hidden lg:justify-center mt-4">
+                        <img
+                            src="./assets/icons/clock-icon.svg"
+                            alt="clock icon"
+                        />
+                        <p class="text-lg text-white">8:00PM GMT</p>
+                    </div>
+
+                    <img
+                        class="absolute bottom-12 w-full z-0 hidden lg:block"
+                        src="./assets/images/air-conditions-wave.svg"
+                        alt=""
+                    />
+
+                    <!-- air conditions section -->
+                    <div
+                        class="hidden lg:flex lg:flex-col lg:gap-5 lg:px-4 lg:text-white lg:mt-[34px] z-10 relative"
+                    >
+                        <h4 class="font-bold text-sm">AIR CONDITIONS</h4>
+                        <div class="flex flex-col gap-11 mb-[47px]">
+                            <div class="flex flex-col">
+                                <div class="flex gap-1">
+                                    <img
+                                        src="./assets/icons/thermometer-icon.svg"
+                                        alt="thermometer icon"
+                                        class="w-4"
+                                    />
+                                    <p class="text-xs py-1">Real Feel</p>
+                                </div>
+                                <p
+                                    class="text-base font-medium justify-self-end ml-5"
+                                >
+                                    30°
+                                </p>
+                            </div>
+                            <div class="flex flex-col">
+                                <div class="flex gap-1">
+                                    <img
+                                        src="./assets/icons/windy-icon.svg"
+                                        alt="windy icon"
+                                        class="w-4"
+                                    />
+                                    <p class="text-xs py-1">Wind</p>
+                                </div>
+                                <p
+                                    class="text-base font-medium justify-self-end ml-5"
+                                >
+                                    0.8 km/hr
+                                </p>
+                            </div>
+                            <div class="flex flex-col">
+                                <div class="flex gap-1">
+                                    <img
+                                        src="./assets/icons/water-drop-icon.svg"
+                                        alt="water drop icon"
+                                        class="w-4"
+                                    />
+                                    <p class="text-xs py-1">Chance of rain</p>
+                                </div>
+                                <p
+                                    class="text-base font-medium justify-self-end ml-5"
+                                >
+                                    2%
+                                </p>
+                            </div>
+                            <div class="flex flex-col">
+                                <div class="flex gap-1">
+                                    <img
+                                        src="./assets/icons/sunny-icon.svg"
+                                        alt="sunny icon"
+                                        class="w-4"
+                                    />
+                                    <p class="text-xs py-1">UV Index</p>
+                                </div>
+                                <p
+                                    class="text-base font-medium justify-self-end ml-5"
+                                >
+                                    4
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- air conditions section -->
+                </section>
+                <!-- other day weather section -->
+            </section>
+        </main>
         <script type="module" src="/js/main.js"></script>
     </body>
 </html>
