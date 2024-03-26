@@ -10,6 +10,9 @@ export default {
                 "primary-light": "#F5B747",
                 "secondary-dark": "#2B261D",
                 "hokey-pokey": "#D69E36",
+                anzac: "#DEAB4D",
+                anzac2: "#DFAE53",
+                putty: "#EACA8F",
             },
             backgroundImage: {
                 "forecast-wave-mobile":
