@@ -16,3 +16,7 @@
 body {
     font-family: "Inter, sans-serif";
 }
+
+.secondary-container {
+    @apply px-2 lg:px-[68px];
+}
