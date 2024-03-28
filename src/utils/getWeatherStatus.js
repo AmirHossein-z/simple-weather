@@ -1,4 +1,4 @@
-import { isDay } from "../js/api";
+import { getTodayTimeStatus } from "../js/api";
 import sunnyIcon from "../assets/icons/sunny-icon.svg";
 import rainyIcon from "../assets/icons/rainy-icon.svg";
 import moonIcon from "../assets/icons/moon-icon.svg";
@@ -8,6 +8,8 @@ import thunderstormRainIcon from "../assets/icons/thunderstorm-rain-icon.svg";
 import sunnyCloudyIcon from "../assets/icons/cloudy-weather-icon.svg";
 import nightCloudyIcon from "../assets/icons/partially-cloudy-icon.svg";
 import fogIcon from "../assets/icons/fog-icon.svg";
+
+const isDay = getTodayTimeStatus();
 
 export const getWeatherStatus = (code) => {
     const status = {
