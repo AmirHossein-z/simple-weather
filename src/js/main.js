@@ -46,7 +46,7 @@ const renderCurrentWeather = (currentWeather) => {
     todayDateMobile.innerHTML = `<p>${day} | ${fullDate}</p>`;
 };
 
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("load", async () => {
     const weatherData = await getAllWeatherInfo();
     renderCurrentWeather(weatherData.current);
 });
