@@ -1,6 +1,6 @@
 import "../css/style.css";
 import "./weatherSlider";
-import { weatherData } from "./api";
+import { getAllWeatherInfo } from "./api";
 import { getWeatherStatus } from "../utils/getWeatherStatus";
 
 const DAYS = [
@@ -46,4 +46,7 @@ const renderCurrentWeather = (currentWeather) => {
     todayDateMobile.innerHTML = `<p>${day} | ${fullDate}</p>`;
 };
 
-renderCurrentWeather(weatherData.current);
+document.addEventListener("DOMContentLoaded", async () => {
+    const weatherData = await getAllWeatherInfo();
+    renderCurrentWeather(weatherData.current);
+});
