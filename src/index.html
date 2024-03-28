@@ -70,8 +70,11 @@
             <section
                 class="mt-[110px] text-white flex flex-col justify-center items-center gap-3 lg:hidden"
             >
-                <h2 class="text-2xl font-medium lg:text-5xl">Cloudy</h2>
-                <div class="lg:self-end">
+                <h2
+                    class="text-2xl font-medium lg:text-5xl"
+                    id="today-weather-mobile"
+                ></h2>
+                <div class="lg:self-end" id="today-icon-mobile">
                     <img
                         src="./assets/images/cloudy-weather.svg"
                         alt="cloudy weather images"
@@ -79,31 +82,39 @@
                     />
                 </div>
                 <div>
-                    <p class="text-7.5xl font-medium text-center">
-                        26 <span>°C</span>
-                    </p>
-                    <div class="flex items-center gap-2 text-lg">
-                        <p>Sunday</p>
-                        |
-                        <p>12 Dec 2023</p>
-                    </div>
+                    <p
+                        class="text-7.5xl font-medium text-center"
+                        id="today-temperature-mobile"
+                    ></p>
+                    <div
+                        class="flex items-center gap-2 text-lg"
+                        id="today-date-mobile"
+                    ></div>
                 </div>
             </section>
             <section
                 class="hidden mt-10 text-white lg:flex justify-between items-start gap-3 flex-nowrap secondary-container"
             >
                 <div class="w-3/4 flex flex-col justify-between self-stretch">
-                    <h2 class="font-medium text-5xl">Cloudy</h2>
+                    <h2
+                        class="font-medium text-5xl"
+                        id="today-weather-desktop"
+                    ></h2>
                     <div>
-                        <p class="text-7.5xl font-medium">26 <span>°C</span></p>
-                        <div class="flex items-center gap-2 text-lg">
-                            <p>Sunday</p>
-                            |
-                            <p>12 Dec 2023</p>
-                        </div>
+                        <p
+                            class="text-7.5xl font-medium"
+                            id="today-temperature-desktop"
+                        ></p>
+                        <div
+                            class="flex items-center gap-2 text-lg"
+                            id="today-date-desktop"
+                        ></div>
                     </div>
                 </div>
-                <div class="w-1/4 flex justify-center items-center">
+                <div
+                    class="w-1/4 flex justify-center items-center"
+                    id="today-icon-desktop"
+                >
                     <img
                         src="./assets/images/cloudy-weather.svg"
                         alt="cloudy weather images"
