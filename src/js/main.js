@@ -25,6 +25,7 @@ const todayDateMobile = document.querySelector("#today-date-mobile");
 const todayDateDesktop = document.querySelector("#today-date-desktop");
 const todayIconDesktop = document.querySelector("#today-icon-desktop");
 const todayIconMobile = document.querySelector("#today-icon-mobile");
+const sliderContent = document.querySelector("#slider-content");
 
 const renderCurrentWeather = (currentWeather) => {
     const weatherStatus = getWeatherStatus(currentWeather.weatherCode);
@@ -46,7 +47,31 @@ const renderCurrentWeather = (currentWeather) => {
     todayDateMobile.innerHTML = `<p>${day} | ${fullDate}</p>`;
 };
 
+const renderDaysWeather = (times, weatherCode) => {
+    let contents = ``;
+    for (let i = 0; i < times.length; i++) {
+        let weatherStatus = getWeatherStatus(weatherCode[i]);
+        const dayName = DAYS[new Date(times[i] * 1000).getDay()].substring(
+            0,
+            3,
+        );
+
+        contents += `
+            <div class="swiper-slide">
+                <p class="text-sm text-white">${dayName}</p>
+                <img
+                    src="${weatherStatus.icon}"
+                    alt="${weatherStatus.alt}"
+                    class="object-center w-8"
+                />
+            </div>
+                `;
+    }
+    sliderContent.innerHTML = contents;
+};
+
 document.addEventListener("DOMContentLoaded", async () => {
     const weatherData = await getAllWeatherInfo();
     renderCurrentWeather(weatherData.current);
+    renderDaysWeather(weatherData.daily.time, weatherData.daily.weatherCode);
 });
