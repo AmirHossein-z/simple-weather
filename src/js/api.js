@@ -4,7 +4,13 @@ import { range } from "../utils/range";
 const params = {
     latitude: 35.6944,
     longitude: 51.4215,
-    current: ["temperature_2m", "weather_code", "wind_speed_10m", "is_day"],
+    current: [
+        "temperature_2m",
+        "weather_code",
+        "wind_speed_10m",
+        "is_day",
+        "apparent_temperature",
+    ],
     daily: ["weather_code", "uv_index_max", "wind_speed_10m_max"],
     timeformat: "unixtime",
 };
@@ -27,6 +33,7 @@ export const getAllWeatherInfo = async () => {
             weatherCode: current.variables(1).value(),
             windSpeed10m: current.variables(2).value(),
             isDay: current.variables(3).value(),
+            apparentTemperature: current.variables(4).value(),
         },
         daily: {
             time: range(
