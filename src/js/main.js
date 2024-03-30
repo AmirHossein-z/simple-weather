@@ -3,6 +3,7 @@ import "./weatherSlider";
 import { getAllWeatherInfo } from "./api";
 import { getWeatherStatus } from "../utils/getWeatherStatus";
 import { getDayName } from "../utils/getDayName";
+import { getAirConditionData } from "../utils/getAirConditionData";
 
 const todayWeatherMobile = document.querySelector("#today-weather-mobile");
 const todayWeatherDesktop = document.querySelector("#today-weather-desktop");
@@ -17,6 +18,8 @@ const todayDateDesktop = document.querySelector("#today-date-desktop");
 const todayIconDesktop = document.querySelector("#today-icon-desktop");
 const todayIconMobile = document.querySelector("#today-icon-mobile");
 const sliderContent = document.querySelector("#slider-content");
+const currentTimezone = document.querySelector("#current-timezone");
+const airConditionSection = document.querySelector("#air-condition-section");
 
 const renderCurrentWeather = (currentWeather) => {
     const weatherStatus = getWeatherStatus(currentWeather.weatherCode);
@@ -34,11 +37,11 @@ const renderCurrentWeather = (currentWeather) => {
     todayIconMobile.innerHTML = `<img src="${weatherStatus.icon}" alt="${weatherStatus.alt}" class="py-6 w-[200px] text-white" />`;
     todayTemperatureDesktop.innerHTML = `${temperature}°C`;
     todayTemperatureMobile.innerHTML = `${temperature}°C`;
-    todayDateDesktop.innerHTML = `<p>${day} | ${fullDate}</p>`;
-    todayDateMobile.innerHTML = `<p>${day} | ${fullDate}</p>`;
+    todayDateDesktop.innerHTML = `<p class="text-lg font-normal">${day} | ${fullDate}</p>`;
+    todayDateMobile.innerHTML = `<p class="text-lg font-normal">${day} | ${fullDate}</p>`;
 };
 
-const renderDaysWeather = (times, weatherCode) => {
+const renderOtherDaysWeather = (times, weatherCode) => {
     let contents = ``;
     for (let i = 0; i < times.length; i++) {
         let weatherStatus = getWeatherStatus(weatherCode[i]);
@@ -58,8 +61,56 @@ const renderDaysWeather = (times, weatherCode) => {
     sliderContent.innerHTML = contents;
 };
 
+const renderCurrentTimezone = (time) => {
+    currentTimezone.innerHTML = time.toLocaleTimeString("en-US", {
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+        timeZoneName: "short",
+    });
+};
+
+const renderAirConditionSection = (currentWeather, uvIndex) => {
+    const data = getAirConditionData({
+        temperature: currentWeather.temperature2m.toFixed(0),
+        wind: `${currentWeather.windSpeed10m.toFixed(0)} km/h`,
+        uvIndex: uvIndex.toFixed(0),
+    });
+
+    let contents = ``;
+    for (let i = 0; i < data.length; i++) {
+        contents += `
+            <div class="flex flex-col">
+                <div class="flex gap-1">
+                    <img
+                        src="${data[i].src}"
+                        alt="${data[i].alt}"
+                        class="w-4"
+                    />
+                    <p class="py-1 text-xs">${data[i].title}</p>
+                </div>
+                <p
+                    class="ml-5 justify-self-end text-base font-medium"
+                >
+                ${data[i].description}
+                </p>
+            </div>
+        `;
+    }
+    airConditionSection.innerHTML = contents;
+};
+
 document.addEventListener("DOMContentLoaded", async () => {
     const weatherData = await getAllWeatherInfo();
+    console.log("weatherData :>> ", weatherData);
     renderCurrentWeather(weatherData.current);
-    renderDaysWeather(weatherData.daily.time, weatherData.daily.weatherCode);
+    renderOtherDaysWeather(
+        weatherData.daily.time,
+        weatherData.daily.weatherCode,
+    );
+    renderCurrentTimezone(weatherData.current.time);
+    renderAirConditionSection(
+        weatherData.current,
+        weatherData.daily.uvIndexMax[0],
+    );
 });
