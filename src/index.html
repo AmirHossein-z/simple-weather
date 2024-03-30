@@ -388,7 +388,7 @@
                             src="./assets/icons/clock-icon.svg"
                             alt="clock icon"
                         />
-                        <p class="text-lg text-white">8:00PM GMT</p>
+                        <p class="text-lg text-white" id="current-timezone"></p>
                     </div>
 
                     <img
@@ -402,68 +402,10 @@
                         class="relative z-10 hidden lg:mt-[34px] lg:flex lg:flex-col lg:gap-5 lg:px-4 lg:text-white"
                     >
                         <h4 class="text-sm font-bold">AIR CONDITIONS</h4>
-                        <div class="mb-[47px] flex flex-col gap-11">
-                            <div class="flex flex-col">
-                                <div class="flex gap-1">
-                                    <img
-                                        src="./assets/icons/thermometer-icon.svg"
-                                        alt="thermometer icon"
-                                        class="w-4"
-                                    />
-                                    <p class="py-1 text-xs">Real Feel</p>
-                                </div>
-                                <p
-                                    class="ml-5 justify-self-end text-base font-medium"
-                                >
-                                    30°
-                                </p>
-                            </div>
-                            <div class="flex flex-col">
-                                <div class="flex gap-1">
-                                    <img
-                                        src="./assets/icons/windy-icon.svg"
-                                        alt="windy icon"
-                                        class="w-4"
-                                    />
-                                    <p class="py-1 text-xs">Wind</p>
-                                </div>
-                                <p
-                                    class="ml-5 justify-self-end text-base font-medium"
-                                >
-                                    0.8 km/hr
-                                </p>
-                            </div>
-                            <div class="flex flex-col">
-                                <div class="flex gap-1">
-                                    <img
-                                        src="./assets/icons/water-drop-icon.svg"
-                                        alt="water drop icon"
-                                        class="w-4"
-                                    />
-                                    <p class="py-1 text-xs">Chance of rain</p>
-                                </div>
-                                <p
-                                    class="ml-5 justify-self-end text-base font-medium"
-                                >
-                                    2%
-                                </p>
-                            </div>
-                            <div class="flex flex-col">
-                                <div class="flex gap-1">
-                                    <img
-                                        src="./assets/icons/sunny-icon.svg"
-                                        alt="sunny icon"
-                                        class="w-4"
-                                    />
-                                    <p class="py-1 text-xs">UV Index</p>
-                                </div>
-                                <p
-                                    class="ml-5 justify-self-end text-base font-medium"
-                                >
-                                    4
-                                </p>
-                            </div>
-                        </div>
+                        <div
+                            class="mb-[47px] flex flex-col gap-11"
+                            id="air-condition-section"
+                        ></div>
                     </div>
                     <!-- air conditions section -->
                 </section>
