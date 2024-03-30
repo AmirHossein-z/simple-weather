@@ -1,17 +1,33 @@
 .weather-slider .swiper-wrapper {
-    @apply mt-[34px];
+    @apply mt-[34px] h-full w-full;
 }
 
 .weather-slider .swiper-slide {
-    @apply text-center text-xl flex flex-col gap-2 justify-center items-center text-white;
+    @apply flex flex-col items-center justify-center gap-2 bg-anzac bg-transparent text-center text-xl text-white text-opacity-60;
 }
 
-.weather-slider .swiper-button-next,
+.weather-slider .swiper-slide-active {
+    @apply text-opacity-100;
+}
+
+.weather-slider .swiper-slide-next,
+.weather-slider .swiper-slide-prev {
+    @apply text-white text-opacity-80;
+}
+
+.weather-slider .swiper-slide-next img,
+.weather-slider .swiper-slide-prev img {
+    @apply text-white text-opacity-80;
+}
+
+.weather-slider .swiper-button-next {
+    @apply -right-1 text-primary-light;
+}
 .weather-slider .swiper-button-prev {
-    @apply text-primary-light;
+    @apply -left-1 text-primary-light;
 }
 
-.weather-slider .swiper-button-next::after,
-.weather-slider .swiper-button-prev::after {
+.weather-slider .swiper-button-prev::after,
+.weather-slider .swiper-button-next::after {
     @apply text-xl;
 }
