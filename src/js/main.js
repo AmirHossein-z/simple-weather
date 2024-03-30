@@ -2,16 +2,7 @@ import "../css/style.css";
 import "./weatherSlider";
 import { getAllWeatherInfo } from "./api";
 import { getWeatherStatus } from "../utils/getWeatherStatus";
-
-const DAYS = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-];
+import { getDayName } from "../utils/getDayName";
 
 const todayWeatherMobile = document.querySelector("#today-weather-mobile");
 const todayWeatherDesktop = document.querySelector("#today-weather-desktop");
@@ -30,7 +21,7 @@ const sliderContent = document.querySelector("#slider-content");
 const renderCurrentWeather = (currentWeather) => {
     const weatherStatus = getWeatherStatus(currentWeather.weatherCode);
     const temperature = Number(currentWeather.temperature2m).toFixed(0);
-    const day = DAYS[currentWeather.time.getDay()];
+    const day = getDayName(currentWeather.time);
     const fullDate = currentWeather.time.toLocaleDateString("en-US", {
         year: "numeric",
         month: "short",
@@ -51,10 +42,7 @@ const renderDaysWeather = (times, weatherCode) => {
     let contents = ``;
     for (let i = 0; i < times.length; i++) {
         let weatherStatus = getWeatherStatus(weatherCode[i]);
-        const dayName = DAYS[new Date(times[i] * 1000).getDay()].substring(
-            0,
-            3,
-        );
+        const dayName = getDayName(times[i] * 1000).substring(0, 3);
 
         contents += `
             <div class="swiper-slide">
