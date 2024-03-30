@@ -21,10 +21,10 @@
 }
 
 .weather-slider .swiper-button-next {
-    @apply -right-1 text-primary-light;
+    @apply text-primary-light;
 }
 .weather-slider .swiper-button-prev {
-    @apply -left-1 text-primary-light;
+    @apply text-primary-light;
 }
 
 .weather-slider .swiper-button-prev::after,
