@@ -3,15 +3,27 @@
 }
 
 .weather-slider .swiper-slide {
-    @apply flex flex-col items-center justify-center gap-2 bg-anzac bg-transparent text-center text-xl text-white text-opacity-60;
+    @apply flex flex-col items-center justify-center gap-2 bg-anzac bg-transparent text-center text-xl text-white;
 }
 
-.weather-slider .swiper-slide-active {
+.weather-slider .swiper-slide p {
+    @apply text-opacity-60;
+}
+
+.weather-slider .swiper-slide img {
+    @apply text-opacity-60;
+}
+
+.weather-slider .swiper-slide-active p {
     @apply text-opacity-100;
 }
 
-.weather-slider .swiper-slide-next,
-.weather-slider .swiper-slide-prev {
+.weather-slider .swiper-slide-active img {
+    @apply text-opacity-100;
+}
+
+.weather-slider .swiper-slide-next p,
+.weather-slider .swiper-slide-prev p {
     @apply text-white text-opacity-80;
 }
 
