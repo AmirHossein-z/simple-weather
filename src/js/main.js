@@ -1,6 +1,6 @@
 import "../css/style.css";
 import "./weatherSlider";
-import { getAllWeatherInfo } from "./api";
+import { getAllWeatherInfo, getCityName } from "./api";
 import { getWeatherStatus } from "../utils/getWeatherStatus";
 import { getDayName } from "../utils/getDayName";
 import { getAirConditionData } from "../utils/getAirConditionData";
@@ -20,6 +20,7 @@ const todayIconMobile = document.querySelector("#today-icon-mobile");
 const sliderContent = document.querySelector("#slider-content");
 const currentTimezone = document.querySelector("#current-timezone");
 const airConditionSection = document.querySelector("#air-condition-section");
+const cityInfo = document.querySelector("#city-info");
 
 const renderCurrentWeather = (currentWeather) => {
     const weatherStatus = getWeatherStatus(currentWeather.weatherCode);
@@ -100,9 +101,14 @@ const renderAirConditionSection = (currentWeather, uvIndex) => {
     airConditionSection.innerHTML = contents;
 };
 
+const renderCityInfo = (city) => {
+    cityInfo.innerHTML = city;
+};
+
 document.addEventListener("DOMContentLoaded", async () => {
     const weatherData = await getAllWeatherInfo();
-    console.log("weatherData :>> ", weatherData);
+    const { city } = await getCityName();
+
     renderCurrentWeather(weatherData.current);
     renderOtherDaysWeather(
         weatherData.daily.time,
@@ -113,4 +119,5 @@ document.addEventListener("DOMContentLoaded", async () => {
         weatherData.current,
         weatherData.daily.uvIndexMax[0],
     );
+    renderCityInfo(city);
 });
