@@ -1,9 +1,11 @@
 import { fetchWeatherApi } from "openmeteo";
 import { range } from "../utils/range";
 
+const [latitude, longitude] = import.meta.env.VITE_LOCATION.split(",");
+
 const params = {
-    latitude: 35.6944,
-    longitude: 51.4215,
+    latitude,
+    longitude,
     current: [
         "temperature_2m",
         "weather_code",
@@ -57,4 +59,11 @@ export const getTodayTimeStatus = async () => {
     const current = response.current();
 
     return Boolean(current.variables(3).value());
+};
+
+export const getCityName = async () => {
+    const url = `${import.meta.env.VITE_CITY_API}?latitude=${latitude}&longitude=${longitude}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    return { city: data.city };
 };
