@@ -14,6 +14,7 @@ const params = {
         "apparent_temperature",
     ],
     daily: ["weather_code", "uv_index_max", "wind_speed_10m_max"],
+    hourly: ["temperature_2m", "weather_code", "wind_speed_10m"],
     timeformat: "unixtime",
 };
 
@@ -26,6 +27,7 @@ export const getAllWeatherInfo = async () => {
     const utcOffsetSeconds = response.utcOffsetSeconds();
     const current = response.current();
     const daily = response.daily();
+    const hourly = response.hourly();
 
     // Note: The order of weather variables in the URL query and the indices below need to match!
     return {
@@ -46,6 +48,16 @@ export const getAllWeatherInfo = async () => {
             weatherCode: daily.variables(0).valuesArray(),
             uvIndexMax: daily.variables(1).valuesArray(),
             windSpeed10mMax: daily.variables(2).valuesArray(),
+        },
+        hourly: {
+            time: range(
+                Number(hourly.time()),
+                Number(hourly.timeEnd()),
+                hourly.interval(),
+            ).map((t) => new Date((t + utcOffsetSeconds) * 1000)),
+            temperature2m: hourly.variables(0).valuesArray(),
+            weatherCode: hourly.variables(1).valuesArray(),
+            windSpeed10m: hourly.variables(2).valuesArray(),
         },
     };
 };
